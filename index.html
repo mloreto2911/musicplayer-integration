@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/3c5f1c2528.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</style>
+    
+    
+    <title>Music Player</title>
+
+</head>
+
+
+
+<body>
+    <!-- Container -->
+    <div class="flex items-center justify-center text-center flex-wrap w-[100%] h-[100vh] px-20">
+
+        <!-- Music Player -->
+        <div class="bg-gray-100  w-[450px] px-[40px] py-[40px] text-center rounded-3xl opacity-80">
+
+            <!-- Thumbnail -->
+            <div class="flex flex-row ">
+                <img class="w-64 z-10 shadow-md rounded-md" src="/imgs/taylor.png">
+                <img class="w-64 relative left-[-150px]" src="/imgs/record.png" alt="">
+            </div>
+            <div class="pt-10 text-center">
+                <h1 class="text-[20px] font-bold">All Too Well (Taylor Swift's Version)</h1>
+                <p class="text-[17px]">Taylor Swift</p>
+            </div>
+
+            <!-- Audio Controls -->
+            <div class="pt-16">
+                <audio id="song">
+                    <source src="/imgs/audio/All Too Well (10 Minute Version) (Taylor's Version) (From The Vault) (Lyric Video).mp3" type="audio/mpeg">
+                </audio>
+                <div class="flex justify-between ">
+                    <div class="currentTime">00:00</div>
+                    <div class="totalDuration">00:00</div>
+                </div>
+                <input type="range" min="1" max="100" value="0" id="progress" class="seekSlider" onchange="seekTo()">
+                
+                
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-evenly items-center pt-10">
+                <!-- Prev Button -->
+                <button onclick="prevButton()" class=" previous inline-flex items-center justify-center  text-6xl"><i class="fa-solid fa-backward-step" style="color: #a05371;"></i></button>
+
+                <!-- Play Button -->
+                <button onclick="playPause()" class=" play w-28 h-28 m-[2px] text-gray-200 shadow-inner inline-flex items-center justify-center text-6xl rounded-full shadow-xl" style="background: #67255D; "><i id="ctrlIcon" class="fa-solid fa-play" style="box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05)" ></i></button>
+
+                <!-- Next Button -->
+                <button onclick="nextButton()" class="next inline-flex items-center justify-center  text-6xl"><i class="fa-solid fa-forward-step" style="color: #a05374;"></i></div>
+                </button>
+
+
+            <!-- Controlers -->
+
+
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel w-[900px] px-[30px] py-[30px] mx-[50px] text-left">
+            <div class="pb-[60px]">
+                <h1 class="text-6xl text-white opacity-80 font-bold">Explore</h1>
+            </div>
+            <div class="tab-group flex justify-start pb-10">
+                <button onclick="showContent('lyrics')" class="btn-lyrics text-4xl font-bold text-white opacity-80 font-bold pr-16 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 active">Song Lyrics</button>
+                <button onclick="showContent('albums')" class="btn-albums text-4xl font-bold text-white opacity-80 font-bold pr-16 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">Other Albums</button>
+                <button onclick="showContent('artists')" class="btn-rel-artists text-4xl font-bold text-white opacity-80 font-bold transition ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300">Related Artists</button>
+                
+            </div>
+            <div class="content-container">
+                <div class="lyrics-container  ">
+                    <div class="content-holder h-auto flex overflow-x-auto overscroll-x-contain text-3xl text-white  "></div>
+                </div>
+                <div class="album-container">
+                    <div class="content-holder text-3xl text-white"></div>
+                </div>
+                <div class="artists-container">
+                    <div class="content-holder text-3xl text-red"></div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+   
+<script src="script.js" ></script>    
+</body>
+</html>
